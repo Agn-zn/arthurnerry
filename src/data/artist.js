@@ -20,7 +20,7 @@ export const artist = {
   origin: "Philippines",
   // Replace with actual verified social handles
   social: {
-    spotify: "https://open.spotify.com/artist/4wZCMwqA0AEJKWV4OoJ7dL",
+    spotify: "https://open.spotify.com/artist/7uDdl5V5AETSFY7K3muu22",
     appleMusic: "https://music.apple.com/ph/artist/arthur-nery/1440614984",
     youtube: "https://www.youtube.com/@ArthurNery",
     instagram: "https://www.instagram.com/arthurnery/",
