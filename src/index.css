@@ -1,0 +1,181 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-bg-primary: #0B090A;
+    --color-bg-secondary: #171214;
+    --color-text-primary: #F5F0ED;
+    --color-text-secondary: #B0A5A5;
+    --color-accent-wine: #8F3447;
+    --color-accent-burgundy: #572530;
+    --color-accent-champagne: #D7BFA6;
+    --color-border-subtle: #30272A;
+  }
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    background-color: #0B090A;
+    color: #F5F0ED;
+    font-family: 'Inter', system-ui, sans-serif;
+    overflow-x: hidden;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 4px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #0B090A;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #30272A;
+    border-radius: 2px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #8F3447;
+  }
+
+  /* Focus styles */
+  :focus-visible {
+    outline: 2px solid #8F3447;
+    outline-offset: 3px;
+  }
+
+  /* Selection */
+  ::selection {
+    background: #8F3447;
+    color: #F5F0ED;
+  }
+}
+
+@layer components {
+  .section-label {
+    @apply text-xs font-medium tracking-widest2 uppercase text-accent-champagne opacity-70;
+  }
+
+  .section-number {
+    @apply text-xs font-medium tracking-widest uppercase text-text-secondary;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center gap-2 px-7 py-3.5 bg-accent-wine text-text-primary
+           text-sm font-medium tracking-widest uppercase
+           transition-all duration-300
+           hover:bg-accent-champagne hover:text-bg-primary
+           active:scale-95 focus-visible:ring-2 focus-visible:ring-accent-wine focus-visible:ring-offset-2 focus-visible:ring-offset-bg-primary;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center gap-2 px-7 py-3.5
+           border border-border-subtle text-text-secondary text-sm font-medium tracking-widest uppercase
+           transition-all duration-300
+           hover:border-accent-champagne hover:text-text-primary
+           active:scale-95 focus-visible:ring-2 focus-visible:ring-border-subtle focus-visible:ring-offset-2 focus-visible:ring-offset-bg-primary;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center gap-2 px-5 py-2.5
+           text-text-secondary text-xs font-medium tracking-widest uppercase
+           transition-all duration-200
+           hover:text-text-primary
+           active:scale-95;
+  }
+
+  .divider {
+    @apply w-12 h-px bg-accent-wine opacity-60;
+  }
+
+  .section-wrapper {
+    @apply px-6 py-20 md:px-12 lg:px-20 xl:px-32 max-w-7xl mx-auto;
+  }
+}
+
+@layer utilities {
+  .text-gradient-champagne {
+    background: linear-gradient(135deg, #D7BFA6 0%, #F5F0ED 50%, #D7BFA6 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .bg-noise {
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  }
+
+  .mask-fade-b {
+    -webkit-mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+    mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+  }
+
+  /* Lightbox overlay */
+  .lightbox-overlay {
+    background: rgba(11, 9, 10, 0.96);
+    backdrop-filter: blur(12px);
+  }
+}
+
+/* Spotify embed responsive */
+.spotify-embed-container {
+  width: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+}
+.spotify-embed-container iframe {
+  width: 100%;
+  display: block;
+}
+
+/* Gallery grid masonry-like layout */
+.gallery-grid {
+  columns: 2;
+  column-gap: 8px;
+  gap: 8px;
+}
+@media (min-width: 768px) {
+  .gallery-grid {
+    columns: 3;
+    column-gap: 12px;
+  }
+}
+@media (min-width: 1024px) {
+  .gallery-grid {
+    columns: 3;
+    column-gap: 16px;
+  }
+}
+.gallery-item {
+  break-inside: avoid;
+  margin-bottom: 8px;
+}
+@media (min-width: 768px) {
+  .gallery-item {
+    margin-bottom: 12px;
+  }
+}
+@media (min-width: 1024px) {
+  .gallery-item {
+    margin-bottom: 16px;
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
